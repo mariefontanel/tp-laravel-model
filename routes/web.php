@@ -13,6 +13,8 @@
 
 Route::get('/', 'ProductController@index');
 
+Route::get('/{slug}', 'ProductController@show')->name('show-product');
+
 
 
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use App\Review;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -47,9 +46,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($slug)
     {
-        //
+        $p = Product::findBySlugOrFail($slug);
+        return view('product-show', ['p' => $p]);
     }
 
     /**

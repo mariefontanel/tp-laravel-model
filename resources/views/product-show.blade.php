@@ -26,18 +26,7 @@
 
     <div class="content">
         {{--MON CODE--}}
-        <h1>Nos produits</h1>
-        <ul>
-            @foreach($mesproduits as $product)
-                <li><strong>Produit :</strong> <a href="{{route('show-product', ['slug' => $product->slug])}}">{{$product->name}}</a> => {{$product->price}}
-                    <ul>
-                        @foreach($product->reviews as $avis)
-                            <li><strong>Avis :</strong>{{$avis->text}}, publié par l'utilisateur dont l'id est le n° : {{$avis->user_id}} qui s'appelle {{$avis->user->name}}</li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endforeach
-        </ul>
+        <h1>{{$p->name}} coûte {{$p->price}}</h1>
 
     </div>
 </div>
