@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Review;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $mesproduits = Product::with('reviews.user')->get();
+
+        return view('products', ['mesproduits' => $mesproduits]);
     }
 
     /**
